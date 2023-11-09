@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import Home from './components/pages/Home'
 import Product from './components/pages/Product'
-import Introduce from './components/pages/Introduce'
+import About from './components/pages/About'
 import Order from './components/pages/Order'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
@@ -12,6 +12,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 
 const App = () => {
+  //add route with switch case
   const [Page, setPage] = useState("home")
   let content; 
   switch (Page) {
@@ -21,8 +22,8 @@ const App = () => {
     case "product":
       content = <Product/>;
       break;
-    case "introduce":
-      content = <Introduce />;
+    case "about":
+      content = <About/>;
       break;
     case "order":
       content = <Order/>;
