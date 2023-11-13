@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+//import React, {useState} from 'react'
+import {Route, Routes} from 'react-router-dom'
 
 import Home from './components/pages/Home'
 import Product from './components/pages/Product'
@@ -8,46 +9,26 @@ import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import Contact from './components/pages/Contact'
 
-import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import Navigation from './components/Navigation'
 
 const App = () => {
-  //add route with switch case
-  const [Page, setPage] = useState("home")
-  let content; 
-  switch (Page) {
-    case "home":
-      content = <Home/>;
-      break;
-    case "product":
-      content = <Product/>;
-      break;
-    case "about":
-      content = <About/>;
-      break;
-    case "order":
-      content = <Order/>;
-      break;
-    case "login":
-      content = <Login/>;
-      break;
-    case "register":
-      content = <Register />;
-      break;
-    case "contact":
-      content = <Contact />;
-      break;       
-    default:
-      content = <Home />;
-      break;
-  }
+  
   return (
     <div>
-      <Navigation 
-      Page = {Page}
-      onPageChange = {setPage}/>
-      {content}
-      <Footer/>
+    <Navigation/>
+    <div className='containter'>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/product' element={<Product/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/order' element={<Order/>}/>
+      </Routes>
+    </div>
+    <Footer />
     </div>
   );
 }
