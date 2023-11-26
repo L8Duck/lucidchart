@@ -15,7 +15,7 @@ import Navigation from './components/Navigation'
 const App = () => {
   
   return (
-    <div>
+    <div className='container py-3'>
     <Navigation/>
     <div className='containter'>
       <Routes>
