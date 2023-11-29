@@ -3,19 +3,6 @@ import { Link } from 'react-router-dom'
 import Logo from "../assets/logo.png"
 import { HiMiniShoppingCart } from "react-icons/hi2";
 
-const Navigation = () => {
-  return (
-    
-    <nav className="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    <Link to='/' className="navbar-brand" >LucidChart</Link>
-      <div className="flex flex-row gap-1 navbar-nav">
-        
-      </div>
-  </div>
-</nav>
-    )
-}
 const Nav = () => {
   return (
   <div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
