@@ -1,93 +1,70 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
-//import Feature2 from "../../assets/feature 2.png";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { FaCheck } from "react-icons/fa";
 
-const Product = ({setData, Data}) => {
-  
-  function IncludingProduct({name}) {
-    console.log(name);
-    var numRows = name === "Enterprise" ? 2: 1;
-    switch (numRows) {
-      case 2:
-        return (
-          <div>
-            <h6 class="card-text">Includes {numRows} enterprise licenses:</h6>
-            <div class="d-flex flex-column gap-2">
-              <div class="card d-inline p-2">Oceny</div>
-              <div class="card d-inline p-2">Oceny Plus</div>
-            </div>
-            
-          </div>
-        )
-      default:
-        return (
-          <div>
-            <h6 class="card-text">Includes {numRows} enterprise licenses:</h6>
-            <div class="d-flex flex-column gap-2">
-              <div class="card d-inline p-2">Oceny</div>
-            </div>
-          </div>
-        )
-    }
-  }
+const Product = ({ setData, Data }) => {
 
-  const HandleInputProduct =(value, name) => {
+  const HandleInputProduct = (value, name) => {
     setData({
       ...Data,
-      [name]: value
-    })
-  }
-  const InputNumber = ({name}) => {
-    return (
-        (name === "Starter") ? (
-          <button className='btn btn-primary'>Seven Up</button>
-        ) : (
-          <input
-            type="number"
-            name="number"
-            value={name === "Team" ? Data.Team : Data.Enterprise}
-            onChange={(e) => {
-              HandleInputProduct(e.target.value, name);
-            }}
-          />
-        )
-
+      [name]: value,
+    });
+  };
+  const InputNumber = ({ name }) => {
+    return name === "Starter" ? (
+      <button className="btn btn-primary w-10">Sign Up</button>
+      ) : (
+      <div className="bg-info rounded-2 d-flex">
+        <label className="fs-7 m-2"> {"number"}</label>
+        <input
+        className="form-control"
+        min={0}
+        type="number"
+        name="number"
+        value={name === "Team" ? Data.Team : Data.Enterprise}
+        onChange={(e) => {
+          HandleInputProduct(e.target.value, name);
+        }}
+        />
+      </div>
     );
   };
-  
-  function ProductCard({title, price}) {
+
+  function ProductCard({ title, price }) {
     return (
       <>
-        <div class="card w-25 p-3">
-          <p className='fs-4'>{title}</p>
+        <div class="card w-25 p-3 d-flex justify-content-center flex-column">
+          <strong className="fs-4">{title}</strong>
           <div class="card-body">
-            <p>$ {price}.00</p>
+            <p>$ {price}.00 {title==="Starter"? "":"per person"}</p>
           </div>
-          <InputNumber name = {title}/>
+          <InputNumber name={title} />
         </div>
       </>
-    )
+    );
   }
 
   function ListOfProducts() {
     return (
       <div>
         <div class="d-flex justify-content-center ">
-          <h1 class='p-2 gap-5'>PRODUCTS</h1>
+          <h1 class="p-2 gap-5">PRODUCTS</h1>
         </div>
         <div class="d-md-flex justify-content-evenly">
           {/* card 1 */}
-          <ProductCard title={"Starter"} price={0.00}/>
-          <ProductCard title={"Team"} price={5}/>
-          <ProductCard title={"Enterprise"} price={10}/>
-</div>
+          <ProductCard title={"Starter"} price={0.0} />
+          <ProductCard title={"Team"} price={200} />
+          <ProductCard title={"Enterprise"} price={400} />
+        </div>
       </div>
-    )
+    );
   }
 
   return (
     <div>
-      <div><ListOfProducts /></div>
+      <div>
+        <ListOfProducts />
+      </div>
 
       <h2 className="display-6 text-center mb-4">Compare plans</h2>
       <div className="table-responsive">
@@ -106,19 +83,13 @@ const Product = ({setData, Data}) => {
                 Public
               </th>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
             <tr>
@@ -127,14 +98,10 @@ const Product = ({setData, Data}) => {
               </th>
               <td />
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
           </tbody>
@@ -144,19 +111,13 @@ const Product = ({setData, Data}) => {
                 Permissions
               </th>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
             <tr>
@@ -165,14 +126,10 @@ const Product = ({setData, Data}) => {
               </th>
               <td />
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
             <tr>
@@ -181,14 +138,10 @@ const Product = ({setData, Data}) => {
               </th>
               <td />
               <td>
-<svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
             <tr>
@@ -198,16 +151,14 @@ const Product = ({setData, Data}) => {
               <td />
               <td />
               <td>
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#check" />
-                </svg>
+                <FaCheck />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
